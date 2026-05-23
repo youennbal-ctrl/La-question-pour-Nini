@@ -73,6 +73,8 @@
     .result{
       animation:fadeIn 0.7s ease;
       padding:20px;
+      max-height:80vh;
+      overflow-y:auto;
     }
 
     .result video,
@@ -209,9 +211,9 @@ yesBtn.addEventListener("click", () => {
 
     <div class="result">
 
-      <!-- VIDEO -->
+      <!-- VIDEO via CDN jsDelivr -->
       <video autoplay loop muted playsinline controls>
-        <source src="video/video.mp4" type="video/mp4">
+        <source src="https://cdn.jsdelivr.net/gh/youennbal-ctrl/La-question-pour-Nini@main/video/video.mp4" type="video/mp4">
         Votre navigateur ne supporte pas la vidéo HTML5
       </video>
 
