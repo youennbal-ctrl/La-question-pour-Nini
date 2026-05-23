@@ -1,10 +1,260 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>La question pour Nini</title>
-  </head>
-  <body>
-    <h1>Bienvenue !</h1>
-    <p>Votre site est en ligne !</p>
-  </body>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Invitation ❤️</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg,#ffd6e0,#ffeef5);
+      overflow:hidden;
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+    }
+
+    .container{
+      width:100%;
+      padding:20px;
+    }
+
+    h1{
+      color:#ff4d79;
+      font-size:2rem;
+      margin-bottom:40px;
+      padding:0 10px;
+    }
+
+    .buttons{
+      position:relative;
+      width:100%;
+      max-width:400px;
+      height:250px;
+      margin:auto;
+    }
+
+    button{
+      position:absolute;
+      padding:15px 28px;
+      border:none;
+      border-radius:18px;
+      font-size:1.2rem;
+      cursor:pointer;
+      transition:0.2s;
+      font-weight:bold;
+      box-shadow:0 5px 15px rgba(0,0,0,0.15);
+    }
+
+    #yesBtn{
+      background:#4CAF50;
+      color:white;
+      left:0%;
+      top:20%;
+    }
+
+    #noBtn{
+      background:#ff4d4d;
+      color:white;
+      left:30%;
+      top:70%;
+    }
+
+    .result{
+      animation:fadeIn 0.7s ease;
+      padding:20px;
+    }
+
+    .result video,
+    .result img{
+      width:90%;
+      max-width:350px;
+      border-radius:25px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.2);
+      margin-bottom:25px;
+    }
+
+    .result h2{
+      color:#ff4d79;
+      font-size:2rem;
+    }
+
+    .hearts{
+      position:fixed;
+      width:100%;
+      height:100%;
+      pointer-events:none;
+      overflow:hidden;
+      top:0;
+      left:0;
+    }
+
+    .heart{
+      position:absolute;
+      font-size:25px;
+      animation:fall linear forwards;
+    }
+
+    @keyframes fall{
+      0%{
+        transform:translateY(-10vh);
+        opacity:1;
+      }
+
+      100%{
+        transform:translateY(110vh);
+        opacity:0;
+      }
+    }
+
+    @keyframes fadeIn{
+      from{
+        opacity:0;
+        transform:scale(0.8);
+      }
+
+      to{
+        opacity:1;
+        transform:scale(1);
+      }
+    }
+
+    @media(max-width:500px){
+
+      h1{
+        font-size:1.6rem;
+      }
+
+      button{
+        font-size:1rem;
+        padding:14px 22px;
+      }
+
+      #yesBtn{
+        left:15%;
+      }
+
+      #noBtn{
+        left:55%;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+<div class="hearts"></div>
+
+<div class="container" id="mainContent">
+
+  <h1>
+    Acceptes-tu ce restaurant  ? :))
+  </h1>
+
+  <div class="buttons">
+
+    <button id="yesBtn">
+      Gourmande que je suis je ne peux que accepter !
+    </button>
+
+    <button id="noBtn">
+      Humm... non
+    </button>
+
+  </div>
+
+</div>
+
+<script>
+
+const noBtn = document.getElementById("noBtn");
+const yesBtn = document.getElementById("yesBtn");
+const buttons = document.querySelector(".buttons");
+
+let scale = 1;
+
+function moveNoButton(){
+
+  const maxX = buttons.clientWidth - noBtn.offsetWidth;
+  const maxY = buttons.clientHeight - noBtn.offsetHeight;
+
+  const randomX = Math.random() * maxX;
+  const randomY = Math.random() * maxY;
+
+  noBtn.style.left = randomX + "px";
+  noBtn.style.top = randomY + "px";
+
+  scale += 0.12;
+
+  yesBtn.style.transform = `scale(${scale})`;
+}
+
+noBtn.addEventListener("mouseover", moveNoButton);
+noBtn.addEventListener("touchstart", moveNoButton);
+
+yesBtn.addEventListener("click", () => {
+
+  document.getElementById("mainContent").innerHTML = `
+
+    <div class="result">
+
+      <!-- VIDEO -->
+      <video autoplay loop muted playsinline>
+        <source src="video/video.mp4" type="video/mp4">
+      </video>
+
+      <h2>
+        Je le savaiiiiiis ;))
+      </h2>
+
+    </div>
+
+  `;
+
+  createHearts();
+});
+
+function createHearts(){
+
+  const heartsContainer = document.querySelector(".hearts");
+
+  setInterval(() => {
+
+    const heart = document.createElement("div");
+
+    heart.classList.add("heart");
+
+    heart.innerHTML = "🎉";
+
+    heart.style.left = Math.random() * 100 + "vw";
+
+    heart.style.animationDuration =
+      (Math.random() * 3 + 2) + "s";
+
+    heart.style.fontSize =
+      (Math.random() * 20 + 20) + "px";
+
+    heartsContainer.appendChild(heart);
+
+    setTimeout(() => {
+      heart.remove();
+    }, 5000);
+
+  }, 200);
+}
+
+</script>
+
+</body>
 </html>
