@@ -3,9 +3,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <meta http-equiv="Pragma" content="no-cache">
-  <meta http-equiv="Expires" content="0">
 
   <title>Invitation </title>
 
@@ -212,9 +209,9 @@ yesBtn.addEventListener("click", () => {
 
     <div class="result">
 
-      <video autoplay loop muted playsinline controls>
-        <source src="https://raw.githubusercontent.com/youennbal-ctrl/La-question-pour-Nini/main/video/Vid%C3%A9o%20moi%20%26%20nini.mp4.mp4" type="video/mp4">
-        Votre navigateur ne supporte pas la vidéo HTML5
+      <!-- VIDEO -->
+      <video autoplay loop muted playsinline>
+        <source src="https://raw.githubusercontent.com/youennbal-ctrl/La-question-pour-Nini/main/video/Vide%CC%81o%20moi%20%26%20nini.mp4.mp4" type="video/mp4">
       </video>
 
       <h2>
@@ -242,9 +239,11 @@ function createHearts(){
 
     heart.style.left = Math.random() * 100 + "vw";
 
-    heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+    heart.style.animationDuration =
+      (Math.random() * 3 + 2) + "s";
 
-    heart.style.fontSize = (Math.random() * 20 + 20) + "px";
+    heart.style.fontSize =
+      (Math.random() * 20 + 20) + "px";
 
     heartsContainer.appendChild(heart);
 
