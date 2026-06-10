@@ -159,7 +159,7 @@
 <div class="container" id="mainContent">
 
   <h1>
-    Acceptes-tu ce restaurant  ? :))
+    Acceptes-tu cette invitation ? :) (stp dis oui car je me fais caca dessus...)#💩💩💩
   </h1>
 
   <div class="buttons">
@@ -169,7 +169,7 @@
     </button>
 
     <button id="noBtn">
-      Humm... non
+      Continue à te faire caca dessus !
     </button>
 
   </div>
@@ -221,7 +221,7 @@ yesBtn.addEventListener("click", () => {
       -->
 
       <h2>
-        Je le savaiiiiiis ;))
+        Je le savaiiiiiis ;)) J'ai trop hâte !!!!
       </h2>
 
     </div>
